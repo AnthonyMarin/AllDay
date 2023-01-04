@@ -59,7 +59,7 @@ public class Tickets extends JPanel {
 				}
 		}
 	}
-	
+
 	public Ticket getSelectedTicket() {
 		//return selected ticket
 		return selectedTicket;
@@ -78,14 +78,8 @@ public class Tickets extends JPanel {
 		
 	}
 
-	void bumpSelectedTicket() {
-		// TODO Auto-generated method stub
-		lists.remove(this.selectedList);
-		selectedList.removeItems();
-		this.update();
-		
-	}
-	private void update() {
+
+	void update() {
 		for(SingleTicket ticket : lists) {
 			ticket.removeItems();
 		}
@@ -104,9 +98,10 @@ public class Tickets extends JPanel {
 					
 					setSelectedList(newList);
 					int selectedIndex = newList.getSelectedIndex();
+					System.out.println(getSelectedTicketIndex());
 					if(  selectedIndex == -1) return;
 					setSelectedItemIndex(selectedIndex);
-					System.out.println(getSelectedTicketIndex());
+				
 				}
 			});
 			newList.setBorder(new CompoundBorder(new LineBorder(new Color(0, 0, 0), 2, true), null));

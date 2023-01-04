@@ -49,11 +49,15 @@ public class TicketScreen extends JFrame {
 		bumpButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
+				if(ticketBar.getSize() == 0) return;
 				int selectedIndex = tickets.getSelectedTicketIndex();
-				tickets.bumpSelectedTicket();
 				
-				System.out.println(selectedIndex);
 				ticketBar.deleteTicket(ticketBar.getTicketAt(selectedIndex));
+				ticketBar.printTickets();
+				tickets.update();
+				
+
+			
 				
 			}
 		});

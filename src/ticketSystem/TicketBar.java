@@ -9,6 +9,11 @@ public class TicketBar {
 		// TODO Auto-generated method stub
 		tickets.add(t1);
 	}
+	public int getSize() {
+		return this.tickets.size();
+		
+		
+	}
 	public void deleteTicket(Ticket t1) {
 		// TODO Auto-generated method stub
 		tickets.remove(t1);
