@@ -86,6 +86,7 @@ public class Tickets extends JPanel {
 		fillScreen();
 		
 	}
+	
 
 	private void setUpLists(JPanel panel) {
 	
@@ -105,25 +106,27 @@ public class Tickets extends JPanel {
 				
 				}
 
-				private void unselectOtherItems(SingleTicket x) {
-					for(SingleTicket list : lists) {
-						if(x == list) continue;
-						System.out.println(list.listModel);
-						list.clearSelection();
-						
-					}
-					
-				}
+				
+				
 			});
 			newList.setBorder(new CompoundBorder(new LineBorder(new Color(0, 0, 0), 2, true), null));
 			panel.add(newList);
 			this.lists.add(newList);
 		}
-		
-		
-	}
+}
 
+		
+		
 	
+
+private void unselectOtherItems(SingleTicket x) {
+	for(SingleTicket list : lists) {
+		if(x == list) continue;
+		System.out.println(list.listModel);
+		list.clearSelection();
+	}
+	
+}
 	public Tickets(TicketBar tickets) {
 		this.tickets =tickets;
 		this.setLayout(new GridLayout(2, 4, 0, 0));
