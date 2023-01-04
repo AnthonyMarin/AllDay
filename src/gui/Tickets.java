@@ -97,11 +97,22 @@ public class Tickets extends JPanel {
 				public void mouseClicked(MouseEvent e) {
 					
 					setSelectedList(newList);
+					unselectOtherItems(selectedList);
 					int selectedIndex = newList.getSelectedIndex();
 					System.out.println(getSelectedTicketIndex());
 					if(  selectedIndex == -1) return;
 					setSelectedItemIndex(selectedIndex);
 				
+				}
+
+				private void unselectOtherItems(SingleTicket x) {
+					for(SingleTicket list : lists) {
+						if(x == list) continue;
+						System.out.println(list.listModel);
+						list.clearSelection();
+						
+					}
+					
 				}
 			});
 			newList.setBorder(new CompoundBorder(new LineBorder(new Color(0, 0, 0), 2, true), null));

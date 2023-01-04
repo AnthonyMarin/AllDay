@@ -39,6 +39,11 @@ public class SystemRunner {
 				
 				tBar.addTicket(t2);
 				//tBar.printTickets();
+				
+				Ticket t3 = new Ticket(3);
+				t3.addItem(entree2);
+				t3.addItem(entree3);
+				tBar.addTicket(t3);
 			
 			    TicketScreen ticketBar = new TicketScreen(tBar);
 			
