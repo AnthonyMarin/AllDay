@@ -40,10 +40,9 @@ public class Tickets extends JPanel {
 	private void fillScreen() {
 		//fills lists
 		for(int i = 0; i < 6 ; i++) {
-			if(i < tickets.getTickets().size()) {
+			if(!(i+offset < tickets.getTickets().size())) continue;
+
 			fillList(lists.get(i), tickets.getTicketAt(i+this.offset));
-			}
-			
 		}	
 	}
 	public int getSelectedTicketIndex() {
@@ -52,7 +51,7 @@ public class Tickets extends JPanel {
 	private void fillList(SingleTicket list, Ticket ticket) {
 		for(Item item : ticket.getItems()) {
 			list.addItem(item.getName());
-
+			
 				for(String mod : item.getMods()) {
 					String modItem = "<html> <pre>   " + mod +  "</pre></html>";
 					list.addItem(modItem);
@@ -63,6 +62,12 @@ public class Tickets extends JPanel {
 	public Ticket getSelectedTicket() {
 		//return selected ticket
 		return selectedTicket;
+		
+	}
+	public void incOffset() {
+		this.offset++;
+		update();
+		
 		
 	}
 	private void setSelectedList(SingleTicket list) {
