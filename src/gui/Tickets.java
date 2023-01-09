@@ -55,6 +55,7 @@ public class Tickets extends JPanel {
 	//calls fillList function on every ticket slot as long as there are tickets
 	private void fillScreen() {
 		//fills lists
+		
 		for(int i = 0; i < 6 ; i++) {
 			if(!(i+offset < tickets.getTickets().size())) continue;
 
@@ -87,6 +88,13 @@ public class Tickets extends JPanel {
 		
 		
 	}
+	public void decOffset() {
+		if(offset == 0) return;
+		else offset--;
+		update();
+		
+	}
+	
 	private void setSelectedList(SingleTicket list) {
 		selectedList = list;
 	}
@@ -149,6 +157,7 @@ private void unselectOtherItems(SingleTicket x) {
 	}
 	
 }
+
 
 
 	

@@ -73,6 +73,7 @@ public class TicketScreen extends JFrame {
 		left_Button.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseReleased(MouseEvent e) {
+				tickets.decOffset();				
 			}
 		});
 		
