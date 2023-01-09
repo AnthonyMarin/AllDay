@@ -20,6 +20,9 @@ public class Ticket {
 	public List<Item> getItems() {
 		return this.items;
 	}
+	public int numItems() {
+		return items.size();
+	}
 	public void removeItem(Item item) {
 		items.remove(item);
 	}

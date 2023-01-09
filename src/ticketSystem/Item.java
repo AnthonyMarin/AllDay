@@ -35,6 +35,9 @@ public abstract class Item {
 		if(mods.size() == 0) return false;
 		return true;
 	}
+	public int numMods() {
+		return mods.size();
+	}
 	public List<String> getMods() {
 		return mods;
 	}
