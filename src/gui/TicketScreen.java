@@ -16,6 +16,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 public class TicketScreen extends JFrame {
 
@@ -43,7 +46,6 @@ public class TicketScreen extends JFrame {
 		
 		JPanel panel = new JPanel();
 		splitPane.setRightComponent(panel);
-		panel.setLayout(new GridLayout(0, 6, 0, 0));
 		//
 		JButton bumpButton = new JButton("Bump");
 		bumpButton.addMouseListener(new MouseAdapter() {
@@ -61,23 +63,36 @@ public class TicketScreen extends JFrame {
 				
 			}
 		});
-		
+		panel.setLayout(new GridLayout(0, 7, 0, 0));
 		panel.add(bumpButton);
 		
 		JButton btnNewButton_2 = new JButton("Tag");
 		panel.add(btnNewButton_2);
+		
+		JButton left_Button = new JButton("Left");
+		left_Button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+			}
+		});
 		
 		JButton btnNewButton_1 = new JButton("Rush Order");
 		panel.add(btnNewButton_1);
 		
 		JButton btnNewButton = new JButton("Rush Item");
 		panel.add(btnNewButton);
+		JButton home_Button = new JButton("Home");
+		panel.add(home_Button);
+		panel.add(left_Button);
 		
-		JButton btnNewButton_4 = new JButton("Left");
-		panel.add(btnNewButton_4);
-		
-		JButton btnNewButton_5 = new JButton("Right");
-		panel.add(btnNewButton_5);
+		JButton right_Button = new JButton("Right");
+		right_Button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				tickets.incOffset();
+			}
+		});
+		panel.add(right_Button);
 		
 		this.setVisible(true);
 	
