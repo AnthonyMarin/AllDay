@@ -26,16 +26,32 @@ public class Tickets extends JPanel {
 
 	
 	SingleTicket selectedList = null; //selected visual ticket(list) 
-	int selectedItemIndex;
-	
 	Ticket selectedTicket = null; //selected object ticket (from ticket bar)
 	
+	int selectedItemIndex;
+	
+	//List<List<Boolean>> taggedItems;
+
+	
 	TicketBar tickets;
-	List<SingleTicket> lists = new ArrayList <SingleTicket>(); //list of visual tickets(lists)
+	ArrayList<SingleTicket> lists = new ArrayList <SingleTicket>(); //list of visual tickets(lists)
+	
 	int offset = 0;
 	
 	private static final long serialVersionUID = 1L;
 	
+	public Tickets(TicketBar tickets) {
+		this.tickets =tickets;
+		 //this.taggedItems = new ArrayList<>(this.tickets.getTickets().size());
+		 //System.out.println(taggedItems);
+		TaggedItems taggedItems = new TaggedItems(this.tickets.getTickets());
+		this.setLayout(new GridLayout(2, 4, 0, 0));
+		setUpLists(this);
+		fillScreen();
+		
+		
+		
+	}
 	//calls fillList function on every ticket slot as long as there are tickets
 	private void fillScreen() {
 		//fills lists
@@ -65,6 +81,7 @@ public class Tickets extends JPanel {
 		
 	}
 	public void incOffset() {
+		if((tickets.getSize() <= 6 + offset)) return;
 		this.offset++;
 		update();
 		
@@ -132,15 +149,7 @@ private void unselectOtherItems(SingleTicket x) {
 	}
 	
 }
-	public Tickets(TicketBar tickets) {
-		this.tickets =tickets;
-		this.setLayout(new GridLayout(2, 4, 0, 0));
-		setUpLists(this);
-		fillScreen();
-		
-		
-		
-	}
+
 
 	
 }
