@@ -12,6 +12,7 @@ public class TaggedItems extends ArrayList<ArrayList<Boolean>> {
 		
 		initTaggedItems(arrayList);
 		
+		
 		System.out.println(this.get(0).set(1, true));
 		
 	
@@ -50,5 +51,11 @@ public class TaggedItems extends ArrayList<ArrayList<Boolean>> {
 		this.get(indexTicket).set(indexItem, true) ;
 
 	}
-	
+	public TaggedItems getAll() {
+		return this;
+		
+	}
+	public ArrayList<Boolean> getList(int x) {
+		return this.get(x);
+	}
 }

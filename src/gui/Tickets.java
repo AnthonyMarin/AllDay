@@ -32,7 +32,7 @@ public class Tickets extends JPanel {
 	
 	//List<List<Boolean>> taggedItems;
 
-	
+	TaggedItems taggedItems ;
 	TicketBar tickets;
 	ArrayList<SingleTicket> lists = new ArrayList <SingleTicket>(); //list of visual tickets(lists)
 	
@@ -44,7 +44,7 @@ public class Tickets extends JPanel {
 		this.tickets =tickets;
 		 //this.taggedItems = new ArrayList<>(this.tickets.getTickets().size());
 		 //System.out.println(taggedItems);
-		TaggedItems taggedItems = new TaggedItems(this.tickets.getTickets());
+		this.taggedItems= new TaggedItems(this.tickets.getTickets());
 		this.setLayout(new GridLayout(2, 4, 0, 0));
 		setUpLists(this);
 		fillScreen();
@@ -58,14 +58,19 @@ public class Tickets extends JPanel {
 		
 		for(int i = 0; i < 6 ; i++) {
 			if(!(i+offset < tickets.getTickets().size())) continue;
-
-			fillList(lists.get(i), tickets.getTicketAt(i+this.offset));
+			SingleTicket currentList = lists.get(i);
+			Ticket currentTicket = tickets.getTicketAt(i+this.offset);
+			
+			fillList(currentList, currentTicket);
+			currentList.setTaggedItems(this.taggedItems.getList(i+offset));
+			currentList.updateTags();
 		}	
 	}
 	public int getSelectedTicketIndex() {
 		return lists.indexOf(selectedList);
 	}
 	private void fillList(SingleTicket list, Ticket ticket) {
+	
 		for(Item item : ticket.getItems()) {
 			list.addItem(item.getName());
 			
