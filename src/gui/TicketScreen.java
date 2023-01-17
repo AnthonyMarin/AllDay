@@ -53,9 +53,11 @@ public class TicketScreen extends JFrame {
 			public void mouseReleased(MouseEvent e) {
 				if(ticketBar.getSize() == 0) return;
 				int selectedIndex = tickets.getSelectedTicketIndex();
-				
-				ticketBar.deleteTicket(ticketBar.getTicketAt(selectedIndex));
-				ticketBar.printTickets();
+				System.out.println(selectedIndex);
+				ticketBar.deleteTicketAt(selectedIndex);
+				//ticketBar.deleteTicket(ticketBar.getTicketAt(selectedIndex)); // this will delete multiple tickets if duplicates exist // use deleteAtIndex
+				tickets.removeTaggedItems(selectedIndex);
+				System.out.println(tickets.taggedItems);
 				tickets.update();
 				
 

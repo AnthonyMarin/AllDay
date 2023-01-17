@@ -44,15 +44,11 @@ public class SystemRunner {
 				t3.addItem(entree2);
 				t3.addItem(entree3);
 				tBar.addTicket(t3);
-			
-				tBar.addTicket(t3);
-				tBar.addTicket(t1);
-				tBar.addTicket(t3);
 				tBar.addTicket(t1);
 				tBar.addTicket(t2);
 				tBar.addTicket(t3);
 				tBar.addTicket(t1);
-				tBar.addTicket(t2);
+				
 			    TicketScreen ticketBar = new TicketScreen(tBar);
 			
 			  

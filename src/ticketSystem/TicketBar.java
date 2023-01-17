@@ -28,10 +28,16 @@ public class TicketBar {
 		return tickets.get(i);
 	}
 	public void printTickets() {
-		System.out.println("Ticket");
+		
 		for(Ticket ticket : tickets){
+			System.out.println("Ticket");
 		    ticket.printTicket();
 		}
+	}
+	public void deleteTicketAt(int selectedIndex) {
+		// TODO Auto-generated method stub
+		this.tickets.remove(selectedIndex);
+		
 	}
 	
 
