@@ -13,10 +13,10 @@ public class TaggedItems extends ArrayList<ArrayList<Boolean>> {
 		initTaggedItems(arrayList);
 		
 		
-		System.out.println(this.get(0).set(1, true));
+		//System.out.println(this.get(0).set(1, true));
 		
 	
-		System.out.println(this);
+		//System.out.println(this);
 		
 	}
 

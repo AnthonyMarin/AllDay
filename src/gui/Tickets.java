@@ -67,7 +67,7 @@ public class Tickets extends JPanel {
 		}	
 	}
 	public int getSelectedTicketIndex() {
-		return lists.indexOf(selectedList);
+		return lists.indexOf(selectedList) + offset;
 	}
 	private void fillList(SingleTicket list, Ticket ticket) {
 	
@@ -131,8 +131,12 @@ public class Tickets extends JPanel {
 			newList.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					
+					if(newList.isEmpty() || selectedList == newList) return;
+					if(selectedList != null) {
+						selectedList.toggleSeleted();
+					}
 					setSelectedList(newList);
+					newList.toggleSeleted();
 					unselectOtherItems(selectedList);
 					int selectedIndex = newList.getSelectedIndex();
 					System.out.println(getSelectedTicketIndex());
@@ -144,7 +148,7 @@ public class Tickets extends JPanel {
 				
 				
 			});
-			newList.setBorder(new CompoundBorder(new LineBorder(new Color(0, 0, 0), 2, true), null));
+			
 			panel.add(newList);
 			this.lists.add(newList);
 		}
@@ -160,6 +164,11 @@ private void unselectOtherItems(SingleTicket x) {
 		System.out.println(list.listModel);
 		list.clearSelection();
 	}
+	
+}
+public void removeTaggedItems(int selectedIndex) {
+	// TODO Auto-generated method stub
+	this.taggedItems.remove(selectedIndex);
 	
 }
 
