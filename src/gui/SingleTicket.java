@@ -17,17 +17,17 @@ import java.awt.Color;
 
 public class SingleTicket extends JList {
 	
-	DefaultListModel<String> listModel = new DefaultListModel<>();
-	boolean selected = false;
+	private DefaultListModel<String> listModel = new DefaultListModel<>();
+	 private boolean selected = false;
 	
 	ArrayList<Boolean> taggedItems = new ArrayList<>();
 	public SingleTicket() {
 		setBorder(new CompoundBorder(new LineBorder(new Color(0, 0, 0), 2, true), null));
 
-		this.setModel(listModel);	
+		this.setModel(getListModel());	
 	}
 	public boolean isEmpty() {
-		return listModel.isEmpty();
+		return getListModel().isEmpty();
 	}
 	public boolean isSelected() {
 		return selected;
@@ -48,19 +48,22 @@ public class SingleTicket extends JList {
 	}
 	
 	public void addItem(String string) {
-		this.listModel.addElement(string);
+		this.getListModel().addElement(string);
 	}
 
 	public void removeItems() {
-		listModel.removeAllElements();
+		getListModel().removeAllElements();
 		
 	}
 	public void updateTags() {
-		for(int i = 0; i < listModel.size();i++) {
+		for(int i = 0; i < getListModel().size();i++) {
 			if(taggedItems.get(i) == false) continue;
 			//visually tag item
 			
 		}
 		
+	}
+	public DefaultListModel<String> getListModel() {
+		return listModel;
 	}
 }
