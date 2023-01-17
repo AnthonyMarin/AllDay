@@ -23,7 +23,7 @@ import java.awt.Insets;
 public class TicketScreen extends JFrame {
 
 
-	TicketBar ticketBar;
+	private TicketBar ticketBar;
 	public TicketScreen(TicketBar tBar) {
 		ticketBar = tBar;
 		setBackground(new Color(211, 211, 211));
@@ -53,11 +53,10 @@ public class TicketScreen extends JFrame {
 			public void mouseReleased(MouseEvent e) {
 				if(ticketBar.getSize() == 0) return;
 				int selectedIndex = tickets.getSelectedTicketIndex();
-				System.out.println(selectedIndex);
 				ticketBar.deleteTicketAt(selectedIndex);
 				//ticketBar.deleteTicket(ticketBar.getTicketAt(selectedIndex)); // this will delete multiple tickets if duplicates exist // use deleteAtIndex
 				tickets.removeTaggedItems(selectedIndex);
-				System.out.println(tickets.taggedItems);
+				
 				tickets.update();
 				
 
@@ -71,6 +70,21 @@ public class TicketScreen extends JFrame {
 		JButton btnNewButton_2 = new JButton("Tag");
 		panel.add(btnNewButton_2);
 		
+	
+		JButton btnNewButton_1 = new JButton("Rush Order");
+		panel.add(btnNewButton_1);
+		
+		JButton btnNewButton = new JButton("Rush Item");
+		panel.add(btnNewButton);
+		JButton home_Button = new JButton("Home");
+		home_Button.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				tickets.setOffset(0);
+			}
+		});
+		panel.add(home_Button);
+		
 		JButton left_Button = new JButton("Left");
 		left_Button.addMouseListener(new MouseAdapter() {
 			@Override
@@ -78,16 +92,9 @@ public class TicketScreen extends JFrame {
 				tickets.decOffset();				
 			}
 		});
-		
-		JButton btnNewButton_1 = new JButton("Rush Order");
-		panel.add(btnNewButton_1);
-		
-		JButton btnNewButton = new JButton("Rush Item");
-		panel.add(btnNewButton);
-		JButton home_Button = new JButton("Home");
-		panel.add(home_Button);
 		panel.add(left_Button);
 		
+	
 		JButton right_Button = new JButton("Right");
 		right_Button.addMouseListener(new MouseAdapter() {
 			@Override
