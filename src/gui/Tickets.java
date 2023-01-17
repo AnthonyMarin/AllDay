@@ -161,7 +161,7 @@ public class Tickets extends JPanel {
 private void unselectOtherItems(SingleTicket x) {
 	for(SingleTicket list : lists) {
 		if(x == list) continue;
-		System.out.println(list.listModel);
+	
 		list.clearSelection();
 	}
 	
@@ -169,6 +169,12 @@ private void unselectOtherItems(SingleTicket x) {
 public void removeTaggedItems(int selectedIndex) {
 	// TODO Auto-generated method stub
 	this.taggedItems.remove(selectedIndex);
+	
+}
+public void setOffset(int i) {
+	// TODO Auto-generated method stub
+	this.offset = 0;
+	update();
 	
 }
 
